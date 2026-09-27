@@ -249,7 +249,11 @@ video.hidden { visibility: hidden; }
 
 .play {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  /* Firefox n'étire pas un <button> absolu avec inset: 0 → taille explicite */
+  width: 100%;
+  height: 100%;
   display: grid;
   place-items: center;
   border: 0;
