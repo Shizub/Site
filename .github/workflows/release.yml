@@ -1,0 +1,49 @@
+name: Release
+
+# Pousser un tag (ex: git tag v2.1.0 && git push origin v2.1.0) build le site
+# et publie une release GitHub avec le site prêt à héberger en .zip.
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag de la release (ex: v2.1.0)'
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      TAG: ${{ github.event.inputs.tag || github.ref_name }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+      - run: npm run build
+
+      - name: Archives
+        run: |
+          (cd dist && zip -qr "../arsuup-portfolio-${TAG}-site.zip" .)
+          git archive --format=zip --prefix="arsuup-portfolio-${TAG}/" -o "arsuup-portfolio-${TAG}-source.zip" HEAD
+          ls -lh *.zip
+
+      - name: Publier la release
+        run: |
+          gh release view "$TAG" >/dev/null 2>&1 && gh release delete "$TAG" --yes
+          gh release create "$TAG" \
+            "arsuup-portfolio-${TAG}-site.zip#Site buildé (dossier dist, prêt à héberger)" \
+            "arsuup-portfolio-${TAG}-source.zip#Code source" \
+            REVIEW.md \
+            --target "$GITHUB_SHA" \
+            --title "Portfolio Arsuup ${TAG}" \
+            --notes-file .github/RELEASE_NOTES.md
