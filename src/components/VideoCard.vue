@@ -275,7 +275,7 @@ video.hidden { visibility: hidden; }
   transform: scale(.92);
   transition: transform .5s var(--ease-out), background .2s ease;
 }
-.play-icon svg { margin-left: 3px; }
+.play-icon svg { display: block; } /* le triangle du path est déjà centré optiquement */
 .play:hover .play-icon, .play:focus-visible .play-icon { transform: scale(1.04); background: var(--w); }
 .spinning {
   border: 3px solid #ffffff30;
