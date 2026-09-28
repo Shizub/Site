@@ -1,0 +1,39 @@
+LIQUID GLASS – INSTALLATION EN UN CLIC
+======================================
+
+Ce dossier installe le look iOS 26 / Liquid Glass sur un téléphone Android
+ou sur l'émulateur Android Studio :
+  - Liquid Launcher (écran d'accueil en verre)
+  - Liquid Dynamic (Dynamic Island)
+  - Liquid Messages (SMS façon iOS)
+  - iLiquid Dark (pack de 4 500 icônes Liquid Glass)
+
+Les apps viennent du Play Store : le script ouvre chaque fiche, tu appuies
+sur « Installer » (certaines sont payantes ou ont des options Premium).
+Les apps déjà installées sont sautées.
+
+AVANT DE COMMENCER
+------------------
+1. Android Studio installé (il fournit l'outil « adb »).
+2. L'émulateur lancé, avec une image « Google Play » et un compte Google
+   connecté. OU ton téléphone branché en USB avec le débogage USB activé
+   (Paramètres > À propos > appuyer 7 fois sur « Numéro de build »,
+   puis Options pour les développeurs > Débogage USB).
+
+LANCER
+------
+- Windows : double-clic sur install.bat
+- Mac / Linux : ouvrir un terminal dans ce dossier et taper : bash install.sh
+
+À LA FIN
+--------
+- Choisis « Liquid Launcher » comme écran d'accueil (l'écran s'ouvre tout seul).
+- Dans les réglages de Liquid Launcher, choisis le pack d'icônes iLiquid Dark.
+- Ouvre Liquid Dynamic et donne-lui les autorisations demandées.
+
+PERSONNALISER
+-------------
+- apps.txt : la liste des apps. Mets un # devant une ligne pour l'enlever,
+  ou enlève le # des apps optionnelles (appareil photo, KWGT, autre launcher).
+- Dossier « apks » (à créer à côté du script) : tous les fichiers .apk que tu
+  y mets sont installés automatiquement (ex. les démos Liquid Glass de GitHub).

@@ -1,0 +1,19 @@
+# Apps installées par le script, dans cet ordre.
+# Une app par ligne (identifiant Play Store). Mets un # devant une ligne pour la désactiver.
+
+# Écran d'accueil Liquid Glass (Grice Mobile)
+com.grice.launcher
+# Dynamic Island (Grice Mobile)
+com.grice.di
+# Messages façon iOS (Grice Mobile)
+com.grice.message
+# Pack d'icônes iLiquid Dark (4 500 icônes Liquid Glass)
+com.eatos.iliquid.dark
+
+# --- Optionnel : enlève le # pour l'ajouter ---
+# Appareil photo façon iOS (Grice Mobile)
+#com.grice.camera
+# KWGT, pour les widgets
+#org.kustom.widget
+# Autre launcher iOS 26 (LuuTinh), si tu préfères celui-là à Liquid Launcher
+#com.luutinhit.launcherios
